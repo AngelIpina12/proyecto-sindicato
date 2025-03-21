@@ -233,8 +233,6 @@ export const Navbar = () => {
                                         <NavButton
                                             onClick={(e) => handleOpenMenu(index, e)}
                                             endIcon={<KeyboardArrowDownIcon />}
-                                            component={RouterLink}
-                                            to={item.path}
                                         >
                                             {item.title}
                                         </NavButton>
