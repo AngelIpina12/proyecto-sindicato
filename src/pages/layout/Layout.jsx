@@ -6,17 +6,19 @@ import { Box, Container } from '@mui/material';
 
 export const Layout = ({ children }) => {
   return (
-    <div className="layout">
+    <div className="layout" style={{ width: '100%' }}>
       <Header />
       <Navbar />
       <Box
         component="main"
         sx={{
-          flexGrow: 1,
-          py: 6,
-          minHeight: '500px',
-          backgroundColor: '#f5f5f5',
-        }}
+            width: '100%',
+            py: 6,
+            minHeight: '500px',
+            backgroundColor: '#f5f5f5',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
       >
         <Container maxWidth="lg">
           {children}

@@ -84,8 +84,18 @@ const NavButton = styled(Button)(({ theme }) => ({
     color: '#ffffff',
     margin: theme.spacing(0, 1),
     fontSize: '1rem',
+    transition: 'background-color 0.3s ease, transform 0.2s ease',
     '&:hover': {
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        color: 'rgba(204, 204, 204, 0.74)',
+        transform: 'scale(1.07)',
+    },
+}));
+
+const StyledMenuItem = styled(MenuItem)(({theme}) => ({
+    color: '#ffffff',
+    transition: 'background-color 0.3s ease', // Transición suave
+    '&:hover': {
+        color: 'rgba(204, 204, 204, 0.74)', // Verde lima muy suave para submenús
     },
 }));
 
@@ -240,9 +250,6 @@ export const Navbar = () => {
                                             anchorEl={anchorEls[index]}
                                             open={Boolean(anchorEls[index])}
                                             onClose={() => handleCloseMenu(index)}
-                                            sx={{
-                                                mt: '45px'
-                                            }}
                                             PaperProps={{
                                                 sx: {
                                                     backgroundColor: 'secondary.main',
@@ -251,7 +258,7 @@ export const Navbar = () => {
                                             }}
                                         >
                                             {item.items.map((subItem) => (
-                                                <MenuItem
+                                                <StyledMenuItem
                                                     key={subItem.title}
                                                     onClick={() => handleCloseMenu(index)}
                                                     component={RouterLink}
@@ -264,7 +271,7 @@ export const Navbar = () => {
                                                     }}
                                                 >
                                                     {subItem.title}
-                                                </MenuItem>
+                                                </StyledMenuItem>
                                             ))}
                                         </Menu>
                                     </>

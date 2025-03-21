@@ -1,4 +1,4 @@
-import { Box, Container, Grid2, Link, styled, Typography } from '@mui/material'
+import { Box, Container, Grid, Grid2, Link, styled, Typography } from '@mui/material'
 import React from 'react'
 
 const FooterWrapper = styled(Box)(({ theme }) => ({
@@ -28,8 +28,8 @@ export const Footer = () => {
     return (
         <FooterWrapper component="footer">
             <Container maxWidth='lg'>
-                <Grid2 container spacing={4} justifyContent='space-between'>
-                    <Grid2 item xs={12} sm={6} md={4}>
+                <Grid container spacing={4} justifyContent='space-between'>
+                    <Grid item xs={12} sm={6} md={4}>
                         <FooterSection>
                             <Typography variant='h3' component='h3' gutterBottom>
                                 Contacto
@@ -47,8 +47,8 @@ export const Footer = () => {
                                 Email: contacto@conalep.edu.mx
                             </Typography>
                         </FooterSection>
-                    </Grid2>
-                    <Grid2 item xs={12} sm={6} md={4}>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={4}>
                         <FooterSection></FooterSection>
                         <Typography variant="h3" component="h3" gutterBottom>
                             Enlaces Rápidos
@@ -57,8 +57,8 @@ export const Footer = () => {
                         <FooterLink href="#">Inscripciones</FooterLink>
                         <FooterLink href="#">Bolsa de Trabajo</FooterLink>
                         <FooterLink href="#">Noticias</FooterLink>
-                    </Grid2>
-                    <Grid2 item xs={12} sm={6} md={4}>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={4}>
                         <FooterSection>
                             <Typography variant="h3" component="h3" gutterBottom>
                                 Redes Sociales
@@ -68,8 +68,8 @@ export const Footer = () => {
                             <FooterLink href="#">Instagram</FooterLink>
                             <FooterLink href="#">YouTube</FooterLink>
                         </FooterSection>
-                    </Grid2>
-                </Grid2>
+                    </Grid>
+                </Grid>
             </Container>
         </FooterWrapper >
     )

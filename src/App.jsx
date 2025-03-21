@@ -1,9 +1,10 @@
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import Home from './pages/content/Home';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { MisionVision } from './pages/content/MisionVision';
 import { Valores } from './pages/content/Valores';
 import { Organizacion } from './pages/content/Organizacion';
+import { AnimatePresence } from 'framer-motion';
 
 // Tema personalizado con los colores de CONALEP
 const theme = createTheme({
@@ -47,18 +48,29 @@ const theme = createTheme({
   },
 });
 
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/mision-vision" element={<MisionVision />} />
+        <Route path="/valores" element={<Valores />} />
+        <Route path="/organizacion" element={<Organizacion />} />
+        <Route path="*" element={<div>Página no encontrada</div>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/mision-vision" element={<MisionVision />} />
-          <Route path="/valores" element={<Valores />} />
-          <Route path="/organizacion" element={<Organizacion />} />
-          <Route path="*" element={<div>Página no encontrada</div>} />
-        </Routes>
+        <AnimatedRoutes />
       </BrowserRouter>
     </ThemeProvider>
   );
