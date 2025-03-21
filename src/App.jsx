@@ -1,5 +1,9 @@
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import Home from './pages/content/Home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { MisionVision } from './pages/content/MisionVision';
+import { Valores } from './pages/content/Valores';
+import { Organizacion } from './pages/content/Organizacion';
 
 // Tema personalizado con los colores de CONALEP
 const theme = createTheme({
@@ -46,8 +50,16 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <Home />
+      <CssBaseline />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/mision-vision" element={<MisionVision />} />
+          <Route path="/valores" element={<Valores />} />
+          <Route path="/organizacion" element={<Organizacion />} />
+          <Route path="*" element={<div>Página no encontrada</div>} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

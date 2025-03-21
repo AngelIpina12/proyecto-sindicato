@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link as RouterLink } from 'react-router-dom';
 import {
     AppBar,
     Container,
@@ -29,47 +30,47 @@ const menuItems = [
     },
     {
         title: 'Quiénes Somos',
-        path: '#',
+        path: '/',
         items: [
-            { title: 'Historia', path: '#' },
-            { title: 'Misión y Visión', path: '#' },
-            { title: 'Directorio', path: '#' }
+            { title: 'Misión y Visión', path: '/mision-vision' },
+            { title: 'Valores', path: '/valores' },
+            { title: 'Organización', path: '/organizacion' }
         ]
     },
     {
         title: 'Estudiantes',
-        path: '#',
+        path: '/estudiantes',
         items: [
-            { title: 'Servicios Escolares', path: '#' },
-            { title: 'Becas', path: '#' },
-            { title: 'Calendario', path: '#' }
+            { title: 'Servicios Escolares', path: '/estudiantes/servicios-escolares' },
+            { title: 'Becas', path: '/estudiantes/becas' },
+            { title: 'Calendario', path: '/estudiantes/calendario' }
         ]
     },
     {
         title: 'Transparencia',
-        path: '#',
+        path: '/transparencia',
         items: [
-            { title: 'Informes', path: '#' },
-            { title: 'Documentos', path: '#' },
-            { title: 'Licitaciones', path: '#' }
+            { title: 'Informes', path: '/transparencia/informes' },
+            { title: 'Documentos', path: '/transparencia/documentos' },
+            { title: 'Licitaciones', path: '/transparencia/licitaciones' }
         ]
     },
     {
         title: 'Servicios',
-        path: '#',
+        path: '/servicios',
         items: [
-            { title: 'Trámites', path: '#' },
-            { title: 'Certificaciones', path: '#' },
-            { title: 'Bolsa de Trabajo', path: '#' }
+            { title: 'Trámites', path: '/servicios/tramites' },
+            { title: 'Certificaciones', path: '/servicios/certificaciones' },
+            { title: 'Bolsa de Trabajo', path: '/servicios/bolsa-trabajo' }
         ]
     },
     {
         title: 'Otros',
-        path: '#',
+        path: '/otros',
         items: [
-            { title: 'Noticias', path: '#' },
-            { title: 'Eventos', path: '#' },
-            { title: 'Contacto', path: '#' }
+            { title: 'Noticias', path: '/otros/noticias' },
+            { title: 'Eventos', path: '/otros/eventos' },
+            { title: 'Contacto', path: '/otros/contacto' }
         ]
     }
 ];
@@ -90,13 +91,13 @@ const NavButton = styled(Button)(({ theme }) => ({
 
 export const Navbar = () => {
     // Estado para los menús desplegables (desktop)
-    const [anchorEls, setAnchorEls] = useState(Array(menuItems.length).fill(null));
+    const [anchorEls, setAnchorEls] = useState(() => new Array(menuItems.length).fill(null));
 
     // Estado para el menú móvil
     const [mobileOpen, setMobileOpen] = useState(false);
 
     // Estado para los submenús expandidos en móvil
-    const [openSubmenu, setOpenSubmenu] = useState(Array(menuItems.length).fill(false));
+    const [openSubmenu, setOpenSubmenu] = useState(() => new Array(menuItems.length).fill(false));
 
     // Manejadores para escritorio
     const handleOpenMenu = (index, event) => {
@@ -135,7 +136,11 @@ export const Navbar = () => {
                                     {openSubmenu[index] ? <ExpandLess /> : <ExpandMore />}
                                 </ListItemButton>
                             ) : (
-                                <ListItemButton href={item.path}>
+                                <ListItemButton
+                                    component={RouterLink}
+                                    to={item.path}
+                                    onClick={handleDrawerToggle}
+                                >
                                     <ListItemText primary={item.title} />
                                 </ListItemButton>
                             )}
@@ -147,7 +152,9 @@ export const Navbar = () => {
                                     {item.items.map((subItem) => (
                                         <ListItemButton
                                             key={subItem.title}
-                                            href={subItem.path}
+                                            component={RouterLink}
+                                            to={subItem.path}
+                                            onClick={handleDrawerToggle}
                                             sx={{ pl: 4 }}
                                         >
                                             <ListItemText primary={subItem.title} />
@@ -167,13 +174,13 @@ export const Navbar = () => {
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
                     {/* Versión móvil */}
-                    <Box 
+                    <Box
                         sx={{
-                            flexGrow: 1, 
-                            display: { 
-                                xs: 'flex', 
-                                md: 'none' 
-                            } 
+                            flexGrow: 1,
+                            display: {
+                                xs: 'flex',
+                                md: 'none'
+                            }
                         }}
                     >
                         <IconButton
@@ -194,13 +201,13 @@ export const Navbar = () => {
                                 keepMounted: true, // Mejor rendimiento en móviles
                             }}
                             sx={{
-                                display: { 
-                                    xs: 'block', 
-                                    md: 'none' 
+                                display: {
+                                    xs: 'block',
+                                    md: 'none'
                                 },
-                                '& .MuiDrawer-paper': { 
-                                    boxSizing: 'border-box', 
-                                    width: 250 
+                                '& .MuiDrawer-paper': {
+                                    boxSizing: 'border-box',
+                                    width: 250
                                 },
                             }}
                         >
@@ -209,14 +216,14 @@ export const Navbar = () => {
                     </Box>
 
                     {/* Versión desktop */}
-                    <Box 
-                        sx={{ 
-                            flexGrow: 1, 
-                            display: { 
-                                xs: 'none', 
-                                md: 'flex' 
-                            }, 
-                            justifyContent: 'space-between' 
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: {
+                                xs: 'none',
+                                md: 'flex'
+                            },
+                            justifyContent: 'space-between'
                         }}
                     >
                         {menuItems.map((item, index) => (
@@ -226,6 +233,8 @@ export const Navbar = () => {
                                         <NavButton
                                             onClick={(e) => handleOpenMenu(index, e)}
                                             endIcon={<KeyboardArrowDownIcon />}
+                                            component={RouterLink}
+                                            to={item.path}
                                         >
                                             {item.title}
                                         </NavButton>
@@ -233,8 +242,8 @@ export const Navbar = () => {
                                             anchorEl={anchorEls[index]}
                                             open={Boolean(anchorEls[index])}
                                             onClose={() => handleCloseMenu(index)}
-                                            sx={{ 
-                                                mt: '45px' 
+                                            sx={{
+                                                mt: '45px'
                                             }}
                                             PaperProps={{
                                                 sx: {
@@ -247,8 +256,8 @@ export const Navbar = () => {
                                                 <MenuItem
                                                     key={subItem.title}
                                                     onClick={() => handleCloseMenu(index)}
-                                                    component="a"
-                                                    href={subItem.path}
+                                                    component={RouterLink}
+                                                    to={subItem.path}
                                                     sx={{
                                                         color: 'white',
                                                         '&:hover': {
@@ -262,7 +271,10 @@ export const Navbar = () => {
                                         </Menu>
                                     </>
                                 ) : (
-                                    <NavButton href={item.path}>
+                                    <NavButton 
+                                        component={RouterLink} 
+                                        to={item.path}
+                                    >
                                         {item.title}
                                     </NavButton>
                                 )}
