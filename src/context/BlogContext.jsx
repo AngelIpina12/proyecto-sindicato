@@ -7,6 +7,7 @@ export const BlogProvider = ({ children }) => {
         const savedPosts = localStorage.getItem('blogPosts');
         return savedPosts ? JSON.parse(savedPosts) : [];
     });
+    console.log(posts)
 
     // Guardar publicaciones en localStorage cuando cambia el estado
     useEffect(() => {
@@ -20,13 +21,13 @@ export const BlogProvider = ({ children }) => {
             id: `post-${Date.now()}`,
             date: new Date().toISOString(),
         };
-        setPosts([newPost, ...posts]);
+        setPosts(prevPosts => [newPost, ...prevPosts]);
         return newPost.id;
     };
 
     // Obtener una publicación por ID
     const getPostById = (id) => {
-        return posts.find(post => post.id === id);
+        return posts.find(post => post.id == id);
     };
 
     return (
