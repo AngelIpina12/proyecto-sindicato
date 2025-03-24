@@ -61,7 +61,7 @@ export const Organizacion = () => {
 
   return (
     <Layout>
-      {/* <PageTransition>
+      <PageTransition>
         <Box sx={{ my: 4 }}>
           <Typography
             variant="h1"
@@ -311,7 +311,7 @@ export const Organizacion = () => {
             </Typography>
           </Box>
         </Box>
-      </PageTransition> */}
+      </PageTransition>
     </Layout>
   );
 };

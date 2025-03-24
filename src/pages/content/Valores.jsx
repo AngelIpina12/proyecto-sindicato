@@ -55,7 +55,7 @@ export const Valores = () => {
 
   return (
     <Layout>
-      {/* <PageTransition>
+      <PageTransition>
         <Box sx={{ my: 4 }}>
           <Typography
             variant="h1"
@@ -158,7 +158,7 @@ export const Valores = () => {
             </Typography>
           </Box>
         </Box>
-      </PageTransition> */}
+      </PageTransition>
     </Layout>
   );
 };
