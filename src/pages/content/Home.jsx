@@ -1,85 +1,86 @@
 import React, { useEffect, useState } from "react";
 import { Box, Card, CardContent, Container, Divider, Paper, Typography, useTheme } from "@mui/material";
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import SUPAC1Image from "../../assets/SUPAC1.jpg";
-import SUPAC2Image from "../../assets/SUPAC2.jpg";
-import SUPAC3Image from "../../assets/SUPAC3.jpg";
-import SUPAC4Image from "../../assets/SUPAC4.jpg";
-import SUPAC5Image from "../../assets/SUPAC5.jpg";
-import SUPAC6Image from "../../assets/SUPAC6.jpg";
-import SUPAC7Image from "../../assets/SUPAC7.jpg";
-import SUPAC8Image from "../../assets/SUPAC8.jpg";
-import SUPAC9Image from "../../assets/SUPAC9.jpg";
-import SUPAC10Image from "../../assets/SUPAC10.jpg";
+// import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+// import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+// import SUPAC1Image from "../../assets/SUPAC1.jpg";
+// import SUPAC2Image from "../../assets/SUPAC2.jpg";
+// import SUPAC3Image from "../../assets/SUPAC3.jpg";
+// import SUPAC4Image from "../../assets/SUPAC4.jpg";
+// import SUPAC5Image from "../../assets/SUPAC5.jpg";
+// import SUPAC6Image from "../../assets/SUPAC6.jpg";
+// import SUPAC7Image from "../../assets/SUPAC7.jpg";
+// import SUPAC8Image from "../../assets/SUPAC8.jpg";
+// import SUPAC9Image from "../../assets/SUPAC9.jpg";
+// import SUPAC10Image from "../../assets/SUPAC10.jpg";
 import { Layout } from "../layout/Layout";
 import PageTransition from "../../utilities/PageTransition";
 import NewsCarousel from "../../components/NewsCarousel";
 
-const carouselImages = [
-    {
-        url: SUPAC1Image,
-        title: "Formación académica de calidad"
-    },
-    {
-        url: SUPAC2Image,
-        title: "Excelencia educativa"
-    },
-    {
-        url: SUPAC3Image,
-        title: "Desarrollo profesional"
-    },
-    {
-        url: SUPAC4Image,
-        title: "Desarrollo profesional"
-    },
-    {
-        url: SUPAC5Image,
-        title: "Desarrollo profesional"
-    },
-    {
-        url: SUPAC6Image,
-        title: "Desarrollo profesional"
-    },
-    {
-        url: SUPAC7Image,
-        title: "Desarrollo profesional"
-    },
-    {
-        url: SUPAC8Image,
-        title: "Desarrollo profesional"
-    },
-    {
-        url: SUPAC9Image,
-        title: "Desarrollo profesional"
-    },
-    {
-        url: SUPAC10Image,
-        title: "Desarrollo profesional"
-    }
-];
+// const carouselImages = [
+//     {
+//         url: SUPAC1Image,
+//         title: "Formación académica de calidad"
+//     },
+//     {
+//         url: SUPAC2Image,
+//         title: "Excelencia educativa"
+//     },
+//     {
+//         url: SUPAC3Image,
+//         title: "Desarrollo profesional"
+//     },
+//     {
+//         url: SUPAC4Image,
+//         title: "Desarrollo profesional"
+//     },
+//     {
+//         url: SUPAC5Image,
+//         title: "Desarrollo profesional"
+//     },
+//     {
+//         url: SUPAC6Image,
+//         title: "Desarrollo profesional"
+//     },
+//     {
+//         url: SUPAC7Image,
+//         title: "Desarrollo profesional"
+//     },
+//     {
+//         url: SUPAC8Image,
+//         title: "Desarrollo profesional"
+//     },
+//     {
+//         url: SUPAC9Image,
+//         title: "Desarrollo profesional"
+//     },
+//     {
+//         url: SUPAC10Image,
+//         title: "Desarrollo profesional"
+//     }
+// ];
 
 
 const Home = () => {
     const theme = useTheme();
-    const [currentSlide, setCurrentSlide] = useState(0);
+    // const [currentSlide, setCurrentSlide] = useState(0);
 
     // Función para cambiar de slide automáticamente
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
-        }, 5000);
-        return () => clearInterval(interval);
-    }, []);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
+    //     }, 5000);
+    //     return () => clearInterval(interval);
+    // }, []);
 
     // Funciones para controlar el carrusel
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
-    };
+    // const nextSlide = () => {
+    //     setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
+    // };
 
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
-    };
+    // const prevSlide = () => {
+    //     setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
+    // };
+
     return (
         <Layout>
             <PageTransition>
@@ -93,7 +94,7 @@ const Home = () => {
                         color: theme.palette.primary.main
                     }}
                 >
-                    Bienvenidos al Sindicato Único del Personal Académico de Conalep Nuevo León
+                    Bienvenidos al sitio web de SUPAC Nuevo León
                 </Typography>
 
                 {/* Carrusel de noticias */}
@@ -256,12 +257,13 @@ const Home = () => {
                             align="center"
                             sx={{
                                 fontWeight: 'bold',
-                                mb: 3,
+                                mb: 8,
+                                fontSize: 24
                             }}
                         >
                             Política de Calidad
                         </Typography>
-                        <Typography variant="body1" paragraph align="center">
+                        <Typography variant="body1" paragraph>
                             En el Sindicato Único del Personal Académico de Conalep Nuevo León nos comprometemos a:
                         </Typography>
                         <Typography variant="body1" paragraph>
@@ -279,7 +281,7 @@ const Home = () => {
                         <Typography variant="body1" paragraph>
                             • Mantener un diálogo constructivo y permanente con las autoridades educativas en beneficio de la comunidad académica.
                         </Typography>
-                        <Typography variant="body1" align="center" sx={{ mt: 3, fontWeight: 'bold' }}>
+                        <Typography variant="body1" align="center" sx={{ mt: 8, fontWeight: 'bold', fontSize: 24 }}>
                             "Comprometidos con la excelencia académica y el bienestar laboral"
                         </Typography>
                     </CardContent>

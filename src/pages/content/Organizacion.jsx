@@ -19,7 +19,6 @@ import PageTransition from '../../utilities/PageTransition';
 export const Organizacion = () => {
   const theme = useTheme();
 
-  // Estructura del comité ejecutivo (datos de ejemplo)
   const comiteEjecutivo = [
     {
       nombre: "Dr. Juan Pérez Rodríguez",
@@ -95,6 +94,7 @@ export const Organizacion = () => {
                 sx={{
                   color: theme.palette.primary.main,
                   fontWeight: 'bold',
+                  mt: 2,
                 }}
               >
                 Estructura Organizacional
@@ -174,6 +174,7 @@ export const Organizacion = () => {
                 sx={{
                   color: theme.palette.primary.main,
                   fontWeight: 'bold',
+                  mt: 2,
                 }}
               >
                 Comité Ejecutivo
@@ -258,7 +259,7 @@ export const Organizacion = () => {
               <Typography
                 variant="h3"
                 component="h2"
-                sx={{ fontWeight: 'bold' }}
+                sx={{ fontWeight: 'bold', mt: 2, }}
               >
                 Marco Normativo
               </Typography>

@@ -74,19 +74,6 @@ const NewsCarousel = () => {
                 }
             }}
         >
-            <Typography
-                variant="h3"
-                component="h2"
-                align="left"
-                sx={{
-                    mb: 2,
-                    color: theme.palette.primary.main,
-                    fontWeight: 'bold'
-                }}
-            >
-                Noticias y Anuncios
-            </Typography>
-
             <Paper
                 elevation={3}
                 sx={{
@@ -122,7 +109,7 @@ const NewsCarousel = () => {
                                 color: 'white',
                             }}
                         >
-                            <Typography variant="h4" gutterBottom>
+                            <Typography variant="h3" gutterBottom>
                                 {post.title}
                             </Typography>
                             <Typography variant="body1" sx={{ display: { xs: 'none', sm: 'block' } }}>
