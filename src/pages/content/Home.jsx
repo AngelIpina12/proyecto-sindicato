@@ -100,7 +100,7 @@ const Home = () => {
                 <NewsCarousel />    
 
                 {/* Carrusel de imágenes */}
-                <Box
+                {/* <Box
                     sx={{
                         position: 'relative',
                         mb: 6,
@@ -147,7 +147,6 @@ const Home = () => {
                             </Box>
                         ))}
 
-                        {/* Controles del carrusel */}
                         <Box
                             className="carousel-controls"
                             sx={{
@@ -198,7 +197,6 @@ const Home = () => {
                             </Box>
                         </Box>
 
-                        {/* Indicadores del carrusel */}
                         <Box
                             sx={{
                                 position: 'absolute',
@@ -227,7 +225,7 @@ const Home = () => {
                             ))}
                         </Box>
                     </Paper>
-                </Box>
+                </Box> */}
 
                 {/* Información introductoria */}
                 <Typography variant="body1" paragraph sx={{ mb: 4 }}>

@@ -94,9 +94,9 @@ const NavButton = styled(Button)(({ theme }) => ({
 
 const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
     color: '#ffffff',
-    transition: 'background-color 0.3s ease', // Transición suave
+    transition: 'background-color 0.3s ease',
     '&:hover': {
-        color: 'rgba(204, 204, 204, 0.74)', // Verde lima muy suave para submenús
+        color: 'rgba(204, 204, 204, 0.74)',
     },
 }));
 
@@ -107,8 +107,11 @@ const CreateButton = styled(Button)(({ theme }) => ({
     fontSize: '0.9rem',
     borderRadius: '20px',
     padding: theme.spacing(0.5, 2),
+    transition: 'background-color 0.3s ease, transform 0.2s ease',
     '&:hover': {
+        color: 'rgba(204, 204, 204, 0.74)',
         backgroundColor: theme.palette.primary.main,
+        transform: 'scale(1.07)',
     },
 }));
 

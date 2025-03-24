@@ -97,12 +97,13 @@ const PostDetail = () => {
               {post.title}
             </Typography>
             
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, }}>
               <Chip 
                 icon={<CalendarTodayIcon />} 
                 label={post.date ? formatDate(post.date) : 'Fecha no disponible'} 
                 variant="outlined" 
                 size="small"
+                sx={{ p: 2}}
               />
             </Box>
             
