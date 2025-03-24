@@ -1,5 +1,6 @@
-import { Box, Container, styled } from '@mui/material'
 import React from 'react'
+import { Box, Container, styled } from '@mui/material'
+import logo from "../../assets/SUPAClogo2.jpeg";
 
 const HeaderWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
@@ -20,7 +21,7 @@ export const Header = () => {
     return (
         <HeaderWrapper className="header-main">
             <LogoContainer>
-                <Logo src="../../src/assets/SUPAClogo2.jpeg" alt="CONALEP Nuevo León Logo" id="logo" />
+                <Logo src={logo} alt="SUPAC Nuevo León Logo" id="logo" />
             </LogoContainer>
         </HeaderWrapper>
     )
