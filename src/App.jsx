@@ -5,6 +5,9 @@ import { MisionVision } from './pages/content/MisionVision';
 import { Valores } from './pages/content/Valores';
 import { Organizacion } from './pages/content/Organizacion';
 import { AnimatePresence } from 'framer-motion';
+import CreatePost from './pages/content/CreatePost';
+import PostDetail from './pages/content/PostDetail';
+import { BlogProvider } from './context/BlogContext';
 
 // Tema personalizado con los colores de CONALEP
 const theme = createTheme({
@@ -58,6 +61,8 @@ const AnimatedRoutes = () => {
         <Route path="/mision-vision" element={<MisionVision />} />
         <Route path="/valores" element={<Valores />} />
         <Route path="/organizacion" element={<Organizacion />} />
+        <Route path="/crear-publicacion" element={<CreatePost />} />
+        <Route path="/blog/:postId" element={<PostDetail />} />
         <Route path="*" element={<div>Página no encontrada</div>} />
       </Routes>
     </AnimatePresence>
@@ -69,9 +74,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
-        <AnimatedRoutes />
-      </BrowserRouter>
+      <BlogProvider>
+        <BrowserRouter>
+          <AnimatedRoutes />
+        </BrowserRouter>
+      </BlogProvider>
     </ThemeProvider>
   );
 }

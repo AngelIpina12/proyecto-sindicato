@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { BlogContext } from '../../context/BlogContext';
+import { BlogContext } from '../context/BlogContext';
 
 const NewsCarousel = () => {
   const theme = useTheme();

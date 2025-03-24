@@ -14,6 +14,7 @@ import SUPAC9Image from "../../assets/SUPAC9.jpg";
 import SUPAC10Image from "../../assets/SUPAC10.jpg";
 import { Layout } from "../layout/Layout";
 import PageTransition from "../../utilities/PageTransition";
+import NewsCarousel from "../../components/NewsCarousel";
 
 const carouselImages = [
     {
@@ -94,6 +95,9 @@ const Home = () => {
                 >
                     Bienvenidos al Sindicato Único del Personal Académico de Conalep Nuevo León
                 </Typography>
+
+                {/* Carrusel de noticias */}
+                <NewsCarousel />    
 
                 {/* Carrusel de imágenes */}
                 <Box

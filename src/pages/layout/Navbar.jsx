@@ -21,6 +21,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import CreateIcon from '@mui/icons-material/Create';
 
 const menuItems = [
     {
@@ -91,11 +92,23 @@ const NavButton = styled(Button)(({ theme }) => ({
     },
 }));
 
-const StyledMenuItem = styled(MenuItem)(({theme}) => ({
+const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
     color: '#ffffff',
     transition: 'background-color 0.3s ease', // Transición suave
     '&:hover': {
         color: 'rgba(204, 204, 204, 0.74)', // Verde lima muy suave para submenús
+    },
+}));
+
+const CreateButton = styled(Button)(({ theme }) => ({
+    color: '#ffffff',
+    margin: theme.spacing(0, 1),
+    backgroundColor: theme.palette.primary.light,
+    fontSize: '0.9rem',
+    borderRadius: '20px',
+    padding: theme.spacing(0.5, 2),
+    '&:hover': {
+        backgroundColor: theme.palette.primary.main,
     },
 }));
 
@@ -203,6 +216,15 @@ export const Navbar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
+                        <CreateButton
+                            component={RouterLink}
+                            to="/crear-publicacion"
+                            startIcon={<CreateIcon />}
+                            variant="contained"
+                            size="small"
+                        >
+                            Publicar
+                        </CreateButton>
                         <Drawer
                             anchor="left"
                             open={mobileOpen}
@@ -236,55 +258,65 @@ export const Navbar = () => {
                             justifyContent: 'space-between'
                         }}
                     >
-                        {menuItems.map((item, index) => (
-                            <React.Fragment key={item.title}>
-                                {item.items.length > 0 ? (
-                                    <>
+                        <Box sx={{ display: 'flex' }}>
+                            {menuItems.map((item, index) => (
+                                <React.Fragment key={item.title}>
+                                    {item.items.length > 0 ? (
+                                        <>
+                                            <NavButton
+                                                onClick={(e) => handleOpenMenu(index, e)}
+                                                endIcon={<KeyboardArrowDownIcon />}
+                                            >
+                                                {item.title}
+                                            </NavButton>
+                                            <Menu
+                                                anchorEl={anchorEls[index]}
+                                                open={Boolean(anchorEls[index])}
+                                                onClose={() => handleCloseMenu(index)}
+                                                PaperProps={{
+                                                    sx: {
+                                                        backgroundColor: 'secondary.main',
+                                                        minWidth: 200,
+                                                    },
+                                                }}
+                                            >
+                                                {item.items.map((subItem) => (
+                                                    <StyledMenuItem
+                                                        key={subItem.title}
+                                                        onClick={() => handleCloseMenu(index)}
+                                                        component={RouterLink}
+                                                        to={subItem.path}
+                                                        sx={{
+                                                            color: 'white',
+                                                            '&:hover': {
+                                                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                                            },
+                                                        }}
+                                                    >
+                                                        {subItem.title}
+                                                    </StyledMenuItem>
+                                                ))}
+                                            </Menu>
+                                        </>
+                                    ) : (
                                         <NavButton
-                                            onClick={(e) => handleOpenMenu(index, e)}
-                                            endIcon={<KeyboardArrowDownIcon />}
+                                            component={RouterLink}
+                                            to={item.path}
                                         >
                                             {item.title}
                                         </NavButton>
-                                        <Menu
-                                            anchorEl={anchorEls[index]}
-                                            open={Boolean(anchorEls[index])}
-                                            onClose={() => handleCloseMenu(index)}
-                                            PaperProps={{
-                                                sx: {
-                                                    backgroundColor: 'secondary.main',
-                                                    minWidth: 200,
-                                                },
-                                            }}
-                                        >
-                                            {item.items.map((subItem) => (
-                                                <StyledMenuItem
-                                                    key={subItem.title}
-                                                    onClick={() => handleCloseMenu(index)}
-                                                    component={RouterLink}
-                                                    to={subItem.path}
-                                                    sx={{
-                                                        color: 'white',
-                                                        '&:hover': {
-                                                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                                                        },
-                                                    }}
-                                                >
-                                                    {subItem.title}
-                                                </StyledMenuItem>
-                                            ))}
-                                        </Menu>
-                                    </>
-                                ) : (
-                                    <NavButton 
-                                        component={RouterLink} 
-                                        to={item.path}
-                                    >
-                                        {item.title}
-                                    </NavButton>
-                                )}
-                            </React.Fragment>
-                        ))}
+                                    )}
+                                </React.Fragment>
+                            ))}
+                        </Box>
+                        <CreateButton
+                            component={RouterLink}
+                            to="/crear-publicacion"
+                            startIcon={<CreateIcon />}
+                            variant="contained"
+                        >
+                            Crear Publicación
+                        </CreateButton>
                     </Box>
                 </Toolbar>
             </Container>
