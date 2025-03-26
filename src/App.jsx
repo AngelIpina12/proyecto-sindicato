@@ -8,17 +8,17 @@ import { AnimatePresence } from 'framer-motion';
 import CreatePost from './pages/content/CreatePost';
 import PostDetail from './pages/content/PostDetail';
 import { BlogProvider } from './context/BlogContext';
+import { ScrollToTopRouter } from './utilities/ScrollToTopRouter';
 
-// Tema personalizado con los colores de CONALEP
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1a302a', // Color oscuro del header/footer
+      main: '#1a302a',
       light: '#2d4b40',
       dark: '#122018',
     },
     secondary: {
-      main: '#1e352e', // Color de la barra de navegación
+      main: '#1e352e',
       light: '#2d4b40',
       dark: '#122018',
     },
@@ -76,6 +76,7 @@ function App() {
       <CssBaseline />
       <BlogProvider>
         <BrowserRouter>
+          <ScrollToTopRouter />
           <AnimatedRoutes />
         </BrowserRouter>
       </BlogProvider>

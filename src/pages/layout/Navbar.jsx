@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom';
 import {
     AppBar,
@@ -15,13 +15,16 @@ import {
     ListItemText,
     ListItemButton,
     Collapse,
-    styled
+    styled,
+    useTheme
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import CreateIcon from '@mui/icons-material/Create';
+import logo from "../../assets/SUPACLogoNavbrPNGWithTransparency.png";
+import { motion } from 'framer-motion';
 
 const menuItems = [
     {
@@ -78,7 +81,7 @@ const menuItems = [
 
 const NavbarWrapper = styled(AppBar)(({ theme }) => ({
     backgroundColor: theme.palette.secondary.main,
-    boxShadow: 'none',
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
 }));
 
 const NavButton = styled(Button)(({ theme }) => ({
@@ -115,17 +118,31 @@ const CreateButton = styled(Button)(({ theme }) => ({
     },
 }));
 
+// Componente de logo animado
+const AnimatedLogo = ({ isSticky, size = 40 }) => {
+    return (
+        <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: isSticky ? 1 : 0, scale: isSticky ? 1 : 0.8 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            style={{ display: isSticky ? "block" : "none" }}
+        >
+            <RouterLink to="/">
+                <img src={logo} alt="SUPAC Logo" style={{ height: `${size}px` }} />
+            </RouterLink>
+        </motion.div>
+    );
+};
+
 export const Navbar = () => {
-    // Estado para los menús desplegables (desktop)
     const [anchorEls, setAnchorEls] = useState(() => new Array(menuItems.length).fill(null));
-
-    // Estado para el menú móvil
     const [mobileOpen, setMobileOpen] = useState(false);
-
-    // Estado para los submenús expandidos en móvil
     const [openSubmenu, setOpenSubmenu] = useState(() => new Array(menuItems.length).fill(false));
+    const [isSticky, setIsSticky] = useState(false);
+    // const [scrolled, setScrolled] = useState(false);
+    const theme = useTheme();
 
-    // Manejadores para escritorio
+    // Handlers para escritorio
     const handleOpenMenu = (index, event) => {
         const newAnchorEls = [...anchorEls];
         newAnchorEls[index] = event.currentTarget;
@@ -138,7 +155,7 @@ export const Navbar = () => {
         setAnchorEls(newAnchorEls);
     };
 
-    // Manejadores para móvil
+    // Handlers para móvil
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -149,15 +166,47 @@ export const Navbar = () => {
         setOpenSubmenu(newOpenSubmenu);
     };
 
+    // Detectar scroll
+    useEffect(() => {
+        const header = document.querySelector('.header-main');
+        const handleScroll = () => {
+            if (header) {
+                const headerBottom = header.getBoundingClientRect().bottom;
+                setIsSticky(headerBottom <= 0);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     // Menú para móviles
     const drawer = (
         <Box sx={{ width: 250 }} role="presentation">
+            {isSticky && (
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        p: 2
+                    }}
+                >
+                    <RouterLink to="/">
+                        <img
+                            src={logo}
+                            alt="SUPAC Logo"
+                            style={{
+                                height: '50px'
+                            }}
+                        />
+                    </RouterLink>
+                </Box>
+            )}
             <List>
                 {menuItems.map((item, index) => (
                     <React.Fragment key={item.title}>
                         <ListItem disablePadding>
                             {item.items.length > 0 ? (
-                                <ListItemButton 
+                                <ListItemButton
                                     onClick={() => handleSubmenuToggle(index)}
                                     sx={{
                                         '&:hover': {
@@ -193,7 +242,7 @@ export const Navbar = () => {
                                             component={RouterLink}
                                             to={subItem.path}
                                             onClick={handleDrawerToggle}
-                                            sx={{ 
+                                            sx={{
                                                 pl: 4,
                                                 '&:hover': {
                                                     color: 'rgb(46, 97, 34)',
@@ -213,7 +262,16 @@ export const Navbar = () => {
     );
 
     return (
-        <NavbarWrapper position='static'>
+        <NavbarWrapper
+            position={isSticky ? "fixed" : "static"}
+            elevation={isSticky ? 4 : 0}
+            sx={{
+                backgroundColor: isSticky
+                    ? theme.palette.secondary.dark
+                    : theme.palette.secondary.main,
+                transition: 'background-color 0.3s, box-shadow 0.3s'
+            }}
+        >
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
                     {/* Versión móvil */}
@@ -239,6 +297,9 @@ export const Navbar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
+                        <Box sx={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+                            <AnimatedLogo isSticky={isSticky} size={30} />
+                        </Box>
                         <CreateButton
                             component={RouterLink}
                             to="/crear-publicacion"
@@ -253,7 +314,7 @@ export const Navbar = () => {
                             open={mobileOpen}
                             onClose={handleDrawerToggle}
                             ModalProps={{
-                                keepMounted: true, // Mejor rendimiento en móviles
+                                keepMounted: true,
                             }}
                             sx={{
                                 display: {
@@ -278,10 +339,17 @@ export const Navbar = () => {
                                 xs: 'none',
                                 md: 'flex'
                             },
-                            justifyContent: 'space-between'
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
                         }}
                     >
-                        <Box sx={{ display: 'flex' }}>
+                        <motion.div
+                            animate={{
+                                marginLeft: isSticky ? "160px" : "0px",
+                                transition: { duration: 0.4, ease: "easeInOut" }
+                            }}
+                            style={{ display: 'flex' }}
+                        >
                             {menuItems.map((item, index) => (
                                 <React.Fragment key={item.title}>
                                     {item.items.length > 0 ? (
@@ -331,7 +399,18 @@ export const Navbar = () => {
                                     )}
                                 </React.Fragment>
                             ))}
-                        </Box>
+                        </motion.div>
+                        <motion.div
+                            style={{
+                                position: 'absolute',
+                                left: 24,
+                                display: 'flex',
+                                alignItems: 'center'
+                            }}
+                        >
+                            <AnimatedLogo isSticky={isSticky} />
+                        </motion.div>
+
                         <CreateButton
                             component={RouterLink}
                             to="/crear-publicacion"
@@ -343,6 +422,6 @@ export const Navbar = () => {
                     </Box>
                 </Toolbar>
             </Container>
-        </NavbarWrapper>
+        </NavbarWrapper >
     )
 }

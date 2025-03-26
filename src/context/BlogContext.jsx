@@ -7,7 +7,6 @@ export const BlogProvider = ({ children }) => {
         const savedPosts = localStorage.getItem('blogPosts');
         return savedPosts ? JSON.parse(savedPosts) : [];
     });
-    console.log(posts)
 
     // Guardar publicaciones en localStorage cuando cambia el estado
     useEffect(() => {
