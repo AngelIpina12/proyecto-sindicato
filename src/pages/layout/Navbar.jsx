@@ -157,7 +157,14 @@ export const Navbar = () => {
                     <React.Fragment key={item.title}>
                         <ListItem disablePadding>
                             {item.items.length > 0 ? (
-                                <ListItemButton onClick={() => handleSubmenuToggle(index)}>
+                                <ListItemButton 
+                                    onClick={() => handleSubmenuToggle(index)}
+                                    sx={{
+                                        '&:hover': {
+                                            color: 'rgb(46, 97, 34)',
+                                        },
+                                    }}
+                                >
                                     <ListItemText primary={item.title} />
                                     {openSubmenu[index] ? <ExpandLess /> : <ExpandMore />}
                                 </ListItemButton>
@@ -165,6 +172,11 @@ export const Navbar = () => {
                                 <ListItemButton
                                     component={RouterLink}
                                     to={item.path}
+                                    sx={{
+                                        '&:hover': {
+                                            color: 'rgb(46, 97, 34)',
+                                        },
+                                    }}
                                     onClick={handleDrawerToggle}
                                 >
                                     <ListItemText primary={item.title} />
@@ -181,7 +193,12 @@ export const Navbar = () => {
                                             component={RouterLink}
                                             to={subItem.path}
                                             onClick={handleDrawerToggle}
-                                            sx={{ pl: 4 }}
+                                            sx={{ 
+                                                pl: 4,
+                                                '&:hover': {
+                                                    color: 'rgb(46, 97, 34)',
+                                                },
+                                            }}
                                         >
                                             <ListItemText primary={subItem.title} />
                                         </ListItemButton>
