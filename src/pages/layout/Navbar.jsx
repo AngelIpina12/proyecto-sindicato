@@ -103,21 +103,6 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
     },
 }));
 
-const CreateButton = styled(Button)(({ theme }) => ({
-    color: '#ffffff',
-    margin: theme.spacing(0, 1),
-    backgroundColor: theme.palette.primary.light,
-    fontSize: '0.9rem',
-    borderRadius: '20px',
-    padding: theme.spacing(0.5, 2),
-    transition: 'background-color 0.3s ease, transform 0.2s ease',
-    '&:hover': {
-        color: 'rgba(204, 204, 204, 0.74)',
-        backgroundColor: theme.palette.primary.main,
-        transform: 'scale(1.07)',
-    },
-}));
-
 // Componente de logo animado
 const AnimatedLogo = ({ isSticky, size = 40 }) => {
     return (
@@ -139,8 +124,22 @@ export const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState(() => new Array(menuItems.length).fill(false));
     const [isSticky, setIsSticky] = useState(false);
-    // const [scrolled, setScrolled] = useState(false);
     const theme = useTheme();
+
+    const CreateButton = styled(Button)(({ theme }) => ({
+        color: '#ffffff',
+        margin: theme.spacing(0, 1),
+        backgroundColor: isSticky ? theme.palette.secondary.light : theme.palette.primary.light,
+        fontSize: '0.9rem',
+        borderRadius: '20px',
+        padding: theme.spacing(0.5, 2),
+        transition: 'background-color 0.3s ease, transform 0.2s ease',
+        '&:hover': {
+            color: 'rgb(255, 255, 255)',
+            backgroundColor: isSticky ? theme.palette.secondary.dark : theme.palette.primary.dark,
+            transform: 'scale(1.07)',
+        },
+    }));
 
     // Handlers para escritorio
     const handleOpenMenu = (index, event) => {
@@ -267,7 +266,7 @@ export const Navbar = () => {
             elevation={isSticky ? 4 : 0}
             sx={{
                 backgroundColor: isSticky
-                    ? theme.palette.secondary.dark
+                    ? theme.palette.primary.main
                     : theme.palette.secondary.main,
                 transition: 'background-color 0.3s, box-shadow 0.3s'
             }}

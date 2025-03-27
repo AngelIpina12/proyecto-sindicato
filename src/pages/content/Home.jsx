@@ -16,70 +16,8 @@ import { Layout } from "../layout/Layout";
 import PageTransition from "../../utilities/PageTransition";
 import NewsCarousel from "../../components/NewsCarousel";
 
-// const carouselImages = [
-//     {
-//         url: SUPAC1Image,
-//         title: "Formación académica de calidad"
-//     },
-//     {
-//         url: SUPAC2Image,
-//         title: "Excelencia educativa"
-//     },
-//     {
-//         url: SUPAC3Image,
-//         title: "Desarrollo profesional"
-//     },
-//     {
-//         url: SUPAC4Image,
-//         title: "Desarrollo profesional"
-//     },
-//     {
-//         url: SUPAC5Image,
-//         title: "Desarrollo profesional"
-//     },
-//     {
-//         url: SUPAC6Image,
-//         title: "Desarrollo profesional"
-//     },
-//     {
-//         url: SUPAC7Image,
-//         title: "Desarrollo profesional"
-//     },
-//     {
-//         url: SUPAC8Image,
-//         title: "Desarrollo profesional"
-//     },
-//     {
-//         url: SUPAC9Image,
-//         title: "Desarrollo profesional"
-//     },
-//     {
-//         url: SUPAC10Image,
-//         title: "Desarrollo profesional"
-//     }
-// ];
-
-
 const Home = () => {
     const theme = useTheme();
-    // const [currentSlide, setCurrentSlide] = useState(0);
-
-    // Función para cambiar de slide automáticamente
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
-    //     }, 5000);
-    //     return () => clearInterval(interval);
-    // }, []);
-
-    // Funciones para controlar el carrusel
-    // const nextSlide = () => {
-    //     setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
-    // };
-
-    // const prevSlide = () => {
-    //     setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
-    // };
 
     return (
         <Layout>
@@ -91,7 +29,7 @@ const Home = () => {
                     align="center"
                     sx={{
                         mb: 4,
-                        color: theme.palette.primary.main
+                        color: theme.palette.text.main
                     }}
                 >
                     Bienvenidos al sitio web de SUPAC Nuevo León
@@ -99,134 +37,6 @@ const Home = () => {
 
                 {/* Carrusel de noticias */}
                 <NewsCarousel />    
-
-                {/* Carrusel de imágenes */}
-                {/* <Box
-                    sx={{
-                        position: 'relative',
-                        mb: 6,
-                        '&:hover .carousel-controls': {
-                            opacity: 1,
-                        }
-                    }}
-                >
-                    <Paper
-                        elevation={3}
-                        sx={{
-                            overflow: 'hidden',
-                            position: 'relative',
-                            height: { xs: '200px', sm: '300px', md: '400px' },
-                            borderRadius: 2,
-                        }}
-                    >
-                        {carouselImages.map((image, index) => (
-                            <Box
-                                key={index}
-                                sx={{
-                                    position: 'absolute',
-                                    width: '100%',
-                                    height: '100%',
-                                    opacity: index === currentSlide ? 1 : 0,
-                                    transition: 'opacity 1s ease-in-out',
-                                    backgroundImage: `url(${image.url})`,
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                        position: 'absolute',
-                                        bottom: 0,
-                                        width: '100%',
-                                        backgroundColor: 'rgba(0,0,0,0.6)',
-                                        padding: 2,
-                                        color: 'white',
-                                    }}
-                                >
-                                    <Typography variant="h5">{image.title}</Typography>
-                                </Box>
-                            </Box>
-                        ))}
-
-                        <Box
-                            className="carousel-controls"
-                            sx={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                right: 0,
-                                bottom: 0,
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                padding: 2,
-                                opacity: 0,
-                                transition: 'opacity 0.3s',
-                            }}
-                        >
-                            <Box
-                                onClick={prevSlide}
-                                sx={{
-                                    backgroundColor: 'rgba(0,0,0,0.5)',
-                                    borderRadius: '50%',
-                                    width: 40,
-                                    height: 40,
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    cursor: 'pointer',
-                                    color: 'white',
-                                }}
-                            >
-                                <KeyboardArrowLeftIcon />
-                            </Box>
-                            <Box
-                                onClick={nextSlide}
-                                sx={{
-                                    backgroundColor: 'rgba(0,0,0,0.5)',
-                                    borderRadius: '50%',
-                                    width: 40,
-                                    height: 40,
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    cursor: 'pointer',
-                                    color: 'white',
-                                }}
-                            >
-                                <KeyboardArrowRightIcon />
-                            </Box>
-                        </Box>
-
-                        <Box
-                            sx={{
-                                position: 'absolute',
-                                bottom: 0,
-                                width: '100%',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                padding: 1,
-                                zIndex: 2,
-                            }}
-                        >
-                            {carouselImages.map((_, index) => (
-                                <Box
-                                    key={index}
-                                    onClick={() => setCurrentSlide(index)}
-                                    sx={{
-                                        width: 12,
-                                        height: 12,
-                                        borderRadius: '50%',
-                                        backgroundColor: index === currentSlide ? 'white' : 'rgba(255,255,255,0.5)',
-                                        margin: '0 4px',
-                                        cursor: 'pointer',
-                                        transition: 'background-color 0.3s',
-                                    }}
-                                />
-                            ))}
-                        </Box>
-                    </Paper>
-                </Box> */}
 
                 {/* Información introductoria */}
                 <Typography variant="body1" paragraph sx={{ mb: 4 }}>
@@ -244,7 +54,7 @@ const Home = () => {
                     elevation={4}
                     sx={{
                         mb: 5,
-                        bgcolor: theme.palette.primary.light,
+                        bgcolor: theme.palette.primary.dark,
                         color: 'white',
                         borderRadius: 2,
                     }}
