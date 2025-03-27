@@ -24,32 +24,32 @@ export const Valores = () => {
     {
       title: "Justicia",
       description: "Promovemos el trato equitativo y la defensa de los derechos laborales y profesionales de todos nuestros agremiados, actuando conforme a la normatividad y buscando siempre relaciones laborales justas y equilibradas.",
-      icon: <JusticeIcon sx={{ fontSize: 60, color: theme.palette.primary.light }} />
+      icon: <JusticeIcon sx={{ fontSize: 60, color: theme.palette.primary.dark }} />
     },
     {
       title: "Integridad",
       description: "Actuamos con rectitud, honestidad y congruencia, manteniendo una conducta ética en todas nuestras acciones y decisiones, tanto en la gestión sindical como en nuestra labor docente.",
-      icon: <IntegrityIcon sx={{ fontSize: 60, color: theme.palette.primary.light }} />
+      icon: <IntegrityIcon sx={{ fontSize: 60, color: theme.palette.primary.dark }} />
     },
     {
       title: "Solidaridad",
       description: "Fomentamos el apoyo mutuo y la colaboración entre compañeros, creando una comunidad académica unida que trabaja por el bien común y el mejoramiento de las condiciones de todos los miembros del sindicato.",
-      icon: <SolidarityIcon sx={{ fontSize: 60, color: theme.palette.primary.light }} />
+      icon: <SolidarityIcon sx={{ fontSize: 60, color: theme.palette.primary.dark }} />
     },
     {
       title: "Respeto",
       description: "Valoramos la dignidad de cada persona, reconociendo y apreciando las diferencias individuales y fomentando un ambiente de trabajo basado en la consideración mutua y el diálogo constructivo.",
-      icon: <RespectIcon sx={{ fontSize: 60, color: theme.palette.primary.light }} />
+      icon: <RespectIcon sx={{ fontSize: 60, color: theme.palette.primary.dark }} />
     },
     {
       title: "Transparencia",
       description: "Mantenemos una gestión abierta y clara, comunicando con oportunidad y veracidad nuestras acciones y resultados, y rindiendo cuentas de manera periódica a nuestros agremiados.",
-      icon: <TransparencyIcon sx={{ fontSize: 60, color: theme.palette.primary.light }} />
+      icon: <TransparencyIcon sx={{ fontSize: 60, color: theme.palette.primary.dark }} />
     },
     {
       title: "Excelencia",
       description: "Buscamos constantemente la mejora continua y la calidad en todas nuestras actividades, promoviendo el desarrollo profesional y personal de nuestros agremiados para fortalecer la calidad educativa en Conalep.",
-      icon: <ExcellenceIcon sx={{ fontSize: 60, color: theme.palette.primary.light }} />
+      icon: <ExcellenceIcon sx={{ fontSize: 60, color: theme.palette.primary.dark }} />
     }
   ];
 
@@ -61,7 +61,7 @@ export const Valores = () => {
             variant="h1"
             component="h1"
             align="center"
-            sx={{ color: theme.palette.primary.main, mb: 5 }}
+            sx={{ color: theme.palette.primary.dark, mb: 5 }}
           >
             Nuestros Valores
           </Typography>
@@ -105,7 +105,7 @@ export const Valores = () => {
                         align="center"
                         sx={{
                           mt: 2,
-                          color: theme.palette.primary.main,
+                          color: theme.palette.primary.dark,
                           fontWeight: 'bold',
                         }}
                       >
@@ -124,7 +124,7 @@ export const Valores = () => {
 
           <Box
             sx={{
-              bgcolor: theme.palette.primary.main,
+              bgcolor: theme.palette.primary.dark,
               color: 'white',
               p: 4,
               borderRadius: 2,

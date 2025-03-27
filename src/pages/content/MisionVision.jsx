@@ -24,7 +24,7 @@ export const MisionVision = () => {
             variant="h1"
             component="h1"
             align="center"
-            sx={{ color: theme.palette.primary.main, mb: 5 }}
+            sx={{ color: theme.palette.text.main, mb: 5 }}
           >
             Misión y Visión
           </Typography>
@@ -43,7 +43,7 @@ export const MisionVision = () => {
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
-                  bgcolor: theme.palette.primary.light,
+                  bgcolor: theme.palette.primary.dark,
                   color: 'white',
                   borderRadius: 2,
                 }}
@@ -84,7 +84,7 @@ export const MisionVision = () => {
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
-                  bgcolor: theme.palette.secondary.main,
+                  bgcolor: theme.palette.primary.dark,
                   color: 'white',
                   borderRadius: 2,
                 }}
@@ -126,7 +126,7 @@ export const MisionVision = () => {
               mt: 4
             }}
           >
-            <Typography variant="h3" component="h2" gutterBottom align="center" color="primary">
+            <Typography variant="h3" component="h2" gutterBottom align="center" color="dark">
               Nuestro Compromiso Institucional
             </Typography>
             <Typography variant="body1" paragraph align="center">

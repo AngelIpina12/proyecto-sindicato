@@ -42,7 +42,7 @@ const ScrollToTopButton = () => {
           zIndex: 1000,
           backgroundColor: theme.palette.primary.main,
           '&:hover': {
-            backgroundColor: theme.palette.primary.dark,
+            backgroundColor: theme.palette.secondary.main,
           }
         }}
       >

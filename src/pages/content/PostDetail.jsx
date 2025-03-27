@@ -8,7 +8,8 @@ import {
     Divider,
     Button,
     Chip,
-    styled
+    styled,
+    useTheme
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
@@ -22,6 +23,7 @@ const PostDetail = () => {
     const { getPostById } = useContext(BlogContext);
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
+    const theme = useTheme()
 
     // Obtención de publicación
     useEffect(() => {
@@ -43,13 +45,14 @@ const PostDetail = () => {
         navigate('/');
     };
 
-    const CustomButton = styled(Button)({
+    const CustomButton = styled(Button)(({ theme }) => ({
         borderColor: 'gray',
+        color: theme.palette.primary.dark,
         '&:hover': {
-            borderColor: 'gray', 
-            backgroundColor: 'rgba(0, 0, 0, 0.04)', 
+            borderColor: 'gray',
+            backgroundColor: 'rgba(0, 0, 0, 0.04)',
         }
-    });
+    }));
 
     if (loading) {
         return (

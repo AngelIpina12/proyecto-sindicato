@@ -66,7 +66,7 @@ export const Organizacion = () => {
             variant="h1"
             component="h1"
             align="center"
-            sx={{ color: theme.palette.primary.main, mb: 5 }}
+            sx={{ color: theme.palette.primary.dark, mb: 5 }}
           >
             Nuestra Organización
           </Typography>
@@ -83,16 +83,16 @@ export const Organizacion = () => {
               p: 4,
               mb: 6,
               borderRadius: 2,
-              border: `1px solid ${theme.palette.primary.light}`,
+              border: `1px solid ${theme.palette.primary.dark}`,
             }}
           >
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-              <BusinessIcon sx={{ fontSize: 40, color: theme.palette.primary.main, mr: 2 }} />
+              <BusinessIcon sx={{ fontSize: 40, color: theme.palette.primary.dark, mr: 2 }} />
               <Typography
                 variant="h3"
                 component="h2"
                 sx={{
-                  color: theme.palette.primary.main,
+                  color: theme.palette.primary.dark,
                   fontWeight: 'bold',
                   mt: 2,
                 }}
@@ -116,7 +116,7 @@ export const Organizacion = () => {
                     height: '100%',
                   }}
                 >
-                  <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.main }}>
+                  <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.dark }}>
                     Asamblea General
                   </Typography>
                   <Typography variant="body2">
@@ -133,7 +133,7 @@ export const Organizacion = () => {
                     height: '100%',
                   }}
                 >
-                  <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.main }}>
+                  <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.dark }}>
                     Comité Ejecutivo
                   </Typography>
                   <Typography variant="body2">
@@ -150,7 +150,7 @@ export const Organizacion = () => {
                     height: '100%',
                   }}
                 >
-                  <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.main }}>
+                  <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.dark }}>
                     Comisiones Especiales
                   </Typography>
                   <Typography variant="body2">
@@ -167,12 +167,12 @@ export const Organizacion = () => {
 
           <Box sx={{ mb: 6 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-              <PeopleIcon sx={{ fontSize: 40, color: theme.palette.primary.main, mr: 2 }} />
+              <PeopleIcon sx={{ fontSize: 40, color: theme.palette.primary.dark, mr: 2 }} />
               <Typography
                 variant="h3"
                 component="h2"
                 sx={{
-                  color: theme.palette.primary.main,
+                  color: theme.palette.primary.dark,
                   fontWeight: 'bold',
                   mt: 2,
                 }}
@@ -213,7 +213,7 @@ export const Organizacion = () => {
                             width: 120,
                             height: 120,
                             mb: 2,
-                            border: `3px solid ${theme.palette.primary.main}`
+                            border: `3px solid ${theme.palette.primary.dark}`
                           }}
                         />
                         <Typography
@@ -226,7 +226,7 @@ export const Organizacion = () => {
                         </Typography>
                         <Typography
                           variant="subtitle1"
-                          color="primary"
+                          color="dark"
                           align="center"
                           sx={{ mb: 1 }}
                         >
@@ -249,7 +249,7 @@ export const Organizacion = () => {
             sx={{
               p: 4,
               mb: 6,
-              bgcolor: theme.palette.primary.light,
+              bgcolor: theme.palette.primary.dark,
               color: 'white',
               borderRadius: 2,
             }}
@@ -302,7 +302,7 @@ export const Organizacion = () => {
               borderRadius: 2,
             }}
           >
-            <Typography variant="h4" gutterBottom color="primary">
+            <Typography variant="h4" gutterBottom color="dark">
               Trabajamos por y para nuestros agremiados
             </Typography>
             <Typography variant="body1">
