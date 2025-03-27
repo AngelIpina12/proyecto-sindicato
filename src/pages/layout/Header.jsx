@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Container, styled } from '@mui/material'
-import logo from "../../assets/SUPACLogoNavbarPNG.png";
+import logo from "../../assets/SUPACLogoNavbrPNGWithTransparency.png";
 
 const HeaderWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,

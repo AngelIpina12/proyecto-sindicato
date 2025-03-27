@@ -13,14 +13,14 @@ import { ScrollToTopRouter } from './utilities/ScrollToTopRouter';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1a302a',
+      main: '#2FAB27',
       light: '#2d4b40',
       dark: '#122018',
     },
     secondary: {
-      main: '#1e352e',
+      main: '#2C9925',
       light: '#2d4b40',
-      dark: '#122018',
+      dark: '#298822',
     },
     text: {
       primary: '#333333',
