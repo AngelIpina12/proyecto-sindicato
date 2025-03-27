@@ -3,6 +3,7 @@ import { Box, Container, styled } from '@mui/material'
 import logo from "../../assets/SUPACLogoNavbrPNGWithTransparency.png";
 
 const HeaderWrapper = styled(Box)(({ theme }) => ({
+    background: `linear-gradient(to bottom, ${theme.palette.primary.main} 70%, ${theme.palette.secondary.main} 100%)`,
     backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(2, 0),
 }));

@@ -43,21 +43,11 @@ const menuItems = [
         ]
     },
     {
-        title: 'Estudiantes',
-        path: '/estudiantes',
-        items: [
-            { title: 'Servicios Escolares', path: '/estudiantes/servicios-escolares' },
-            { title: 'Becas', path: '/estudiantes/becas' },
-            { title: 'Calendario', path: '/estudiantes/calendario' }
-        ]
-    },
-    {
         title: 'Transparencia',
         path: '/transparencia',
         items: [
-            { title: 'Informes', path: '/transparencia/informes' },
-            { title: 'Documentos', path: '/transparencia/documentos' },
-            { title: 'Licitaciones', path: '/transparencia/licitaciones' }
+            { title: 'Cuentas', path: '/transparencia/cuentas' },
+            { title: 'Licitaciones', path: '/transparencia/licitaciones' },
         ]
     },
     {
@@ -70,12 +60,12 @@ const menuItems = [
         ]
     },
     {
-        title: 'Otros',
-        path: '/otros',
+        title: 'Sugerencias',
+        path: '/sugerencias',
         items: [
-            { title: 'Noticias', path: '/otros/noticias' },
-            { title: 'Eventos', path: '/otros/eventos' },
-            { title: 'Contacto', path: '/otros/contacto' }
+            { title: 'Noticias', path: '/sugerencias/noticias' },
+            { title: 'Eventos', path: '/sugerencias/eventos' },
+            { title: 'Contacto', path: '/sugerencias/contacto' }
         ]
     }
 ];
