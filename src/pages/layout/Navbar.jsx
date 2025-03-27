@@ -24,6 +24,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import CreateIcon from '@mui/icons-material/Create';
 import logo from "../../assets/SUPACLogoNavbrPNGWithTransparency.png";
+import logoWithGreenFont from "../../assets/SUPACLogoNavbrPNGWithTransparencyAndGreenFont.png";
 import { motion } from 'framer-motion';
 
 const menuItems = [
@@ -90,7 +91,7 @@ const NavButton = styled(Button)(({ theme }) => ({
     fontSize: '1rem',
     transition: 'background-color 0.3s ease, transform 0.2s ease',
     '&:hover': {
-        color: 'rgba(204, 204, 204, 0.74)',
+        color: 'rgb(214, 236, 207)',
         transform: 'scale(1.07)',
     },
 }));
@@ -99,7 +100,7 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
     color: '#ffffff',
     transition: 'background-color 0.3s ease',
     '&:hover': {
-        color: 'rgba(204, 204, 204, 0.74)',
+        color: 'rgb(255, 255, 255)',
     },
 }));
 
@@ -180,7 +181,7 @@ export const Navbar = () => {
 
     // Menú para móviles
     const drawer = (
-        <Box sx={{ width: 250 }} role="presentation">
+        <Box sx={{ width: 250, height: "100%", backgroundColor: "#F2FFF1" }} role="presentation">
             {isSticky && (
                 <Box
                     sx={{
@@ -191,7 +192,7 @@ export const Navbar = () => {
                 >
                     <RouterLink to="/">
                         <img
-                            src={logo}
+                            src={logoWithGreenFont}
                             alt="SUPAC Logo"
                             style={{
                                 height: '50px'

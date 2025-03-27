@@ -8,7 +8,7 @@ const FooterWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const FooterLink = styled(Link)(({ theme }) => ({
-    color: '#FFF',
+    color: '#D9FED7',
     display: 'block',
     marginBottom: theme.spacing(1),
     textDecoration: 'none',
@@ -34,16 +34,16 @@ export const Footer = () => {
                             <Typography variant='h3' component='h3' gutterBottom>
                                 Contacto
                             </Typography>
-                            <Typography variant="body2" color="#FFF" display='block'>
+                            <Typography variant="body2" color="#D9FED7" display='block'>
                                 Dirección: Av. Ejemplo #123
                             </Typography>
-                            <Typography variant="body2" color="#FFF" display='block'>
+                            <Typography variant="body2" color="#D9FED7" display='block'>
                                 Monterrey, Nuevo León
                             </Typography>
-                            <Typography variant="body2" color="#FFF" display='block'>
+                            <Typography variant="body2" color="#D9FED7" display='block'>
                                 Teléfono: (81) 1234-5678
                             </Typography>
-                            <Typography variant="body2" color="#FFF" display='block'>
+                            <Typography variant="body2" color="#D9FED7" display='block'>
                                 Email: contacto@conalep.edu.mx
                             </Typography>
                         </FooterSection>
